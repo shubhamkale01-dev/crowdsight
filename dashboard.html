@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crowd Control Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header>
+  Crowd Control Dashboard
+  <span id="time"></span>
+</header>
+
+<div class="container">
+
+  <aside>
+    <h4>Alert History</h4>
+    <div id="alerts"></div>
+  </aside>
+
+  <main>
+    <h4>City Situation Map</h4>
+    <div class="map">
+      <div id="Railway Station" class="zone">Railway Station<br><span>NORMAL</span></div>
+      <div id="Bus Stand" class="zone">Bus Stand<br><span>NORMAL</span></div>
+      <div id="Ramkund Ghat" class="zone">Ramkund Ghat<br><span>NORMAL</span></div>
+    </div>
+  </main>
+
+  <aside>
+    <div class="ai-advisory">
+  <h4>AI Advisory</h4>
+  <p id="aiAdvisoryText">Situation stable. Continue monitoring.</p>
+</div>
+  </aside>
+
+</div>
+
+<footer>LIVE STATUS MONITORING ACTIVE</footer>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

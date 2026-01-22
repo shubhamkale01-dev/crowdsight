@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crowd Reporting – Field Staff</title>
+  <link rel="stylesheet" href="reporter.css">
+</head>
+<body>
+
+<div class="entry-card">
+
+  <h2>Crowd Reporting</h2>
+  <p class="time" id="time"></p>
+
+  <!-- Location -->
+  <label>Location</label>
+  <select id="location">
+    <option>Railway Station</option>
+    <option>Bus Stand</option>
+    <option>Ramkund Ghat</option>
+  </select>
+
+  <!-- Crowd Density -->
+  <label>Crowd Density</label>
+  <div class="density">
+    <button class="low" onclick="send('LOW')">LOW</button>
+    <button class="medium" onclick="send('MEDIUM')">MEDIUM</button>
+    <button class="high" onclick="send('HIGH')">HIGH</button>
+  </div>
+
+  <!-- Emergency -->
+  <p class="warn">⚠ Emergency use only if needed</p>
+
+  <div class="emergency">
+    <button onclick="send('HIGH','Medical Emergency')">🚑 Medical Emergency</button>
+    <button onclick="send('HIGH','Fire Hazard')">🔥 Fire Hazard</button>
+    <button onclick="send('HIGH','Stampede Risk')">⚠ Stampede Risk</button>
+    <button onclick="send('HIGH','Law & Order Issue')">👮 Law & Order Issue</button>
+  </div>
+
+</div>
+
+<script src="reporter.js"></script>
+</body>
+</html>
