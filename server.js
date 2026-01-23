@@ -1,7 +1,3 @@
-app.get("/", (req, res) => {
-  res.send("CrowdSight Backend is running 🚀");
-});
-
 const express = require("express");
 const cors = require("cors");
 const generateAIAdvisory = require("./aiAdvisory");
@@ -10,6 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ✅ ROOT CHECK
+app.get("/", (req, res) => {
+  res.send("CrowdSight Backend is running 🚀");
+});
+
+// DATA
 let alerts = [];
 let zoneStatus = {
   "Railway Station": "NORMAL",
@@ -19,7 +21,7 @@ let zoneStatus = {
 
 function generateAdvisory(alerts) {
   if (alerts.length === 0) return "Situation stable. Continue monitoring.";
-  
+
   const last = alerts[alerts.length - 1];
   if (last.emergency && last.emergency !== "None") {
     return "CRITICAL: Emergency detected. Activate response teams.";
@@ -33,6 +35,7 @@ function generateAdvisory(alerts) {
   return "Situation stable. Continue monitoring.";
 }
 
+// ENTRY API
 app.post("/entry", (req, res) => {
   const { location, crowdLevel, emergency = "None" } = req.body;
 
@@ -48,28 +51,17 @@ app.post("/entry", (req, res) => {
 
   const advisory = generateAIAdvisory(alerts, zoneStatus);
 
-  res.json({
-    success: true,
-    advisory
-  });
+  res.json({ success: true, advisory });
 });
 
-app.get("/", (req, res) => {
-  res.json({ message: "Crowdsight Backend Running", status: "OK" });
-});
-
+// DASHBOARD API
 app.get("/dashboard", (req, res) => {
   const advisory = generateAIAdvisory(alerts, zoneStatus);
-
-  res.json({
-    alerts,
-    zones: zoneStatus,
-    advisory
-  });
+  res.json({ alerts, zones: zoneStatus, advisory });
 });
 
-const PORT = process.env.PORT || 3004;
-
+// START SERVER
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Backend running on port ${PORT}`);
 });
