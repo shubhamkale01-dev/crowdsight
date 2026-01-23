@@ -1,4 +1,4 @@
-const API_URL = "https://crowdsight-backend.onrender.com" || "http://localhost:3003";
+const API_URL = "https://YOUR_RENDER_URL.onrender.com";
 
 function send(level, emergency = "None") {
   fetch(`${API_URL}/entry`, {

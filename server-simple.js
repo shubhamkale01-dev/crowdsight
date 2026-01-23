@@ -1,10 +1,5 @@
-app.get("/", (req, res) => {
-  res.send("CrowdSight Backend is running 🚀");
-});
-
 const express = require("express");
 const cors = require("cors");
-const generateAIAdvisory = require("./aiAdvisory");
 
 const app = express();
 app.use(cors());
@@ -33,6 +28,10 @@ function generateAdvisory(alerts) {
   return "Situation stable. Continue monitoring.";
 }
 
+app.get("/", (req, res) => {
+  res.json({ message: "Crowdsight Backend Running", status: "OK" });
+});
+
 app.post("/entry", (req, res) => {
   const { location, crowdLevel, emergency = "None" } = req.body;
 
@@ -46,25 +45,14 @@ app.post("/entry", (req, res) => {
   alerts.push(alert);
   zoneStatus[location] = crowdLevel;
 
-  const advisory = generateAIAdvisory(alerts, zoneStatus);
-
-  res.json({
-    success: true,
-    advisory
-  });
-});
-
-app.get("/", (req, res) => {
-  res.json({ message: "Crowdsight Backend Running", status: "OK" });
+  res.json({ success: true });
 });
 
 app.get("/dashboard", (req, res) => {
-  const advisory = generateAIAdvisory(alerts, zoneStatus);
-
   res.json({
     alerts,
     zones: zoneStatus,
-    advisory
+    advisory: generateAdvisory(alerts)
   });
 });
 
