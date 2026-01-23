@@ -2,7 +2,7 @@ function updateTime() {
   document.getElementById("time").innerText = new Date().toLocaleString();
 }
 
-const API_URL = "https://YOUR_RENDER_URL.onrender.com";
+const API_URL = "https://crowdsight-backend.onrender.com";
 
 function loadDashboard() {
   fetch(`${API_URL}/dashboard`)
