@@ -1,4 +1,4 @@
-const API_URL = "https://YOUR_RENDER_URL.onrender.com";
+const API_URL = "https://crowdsight-backend.onrender.com";
 
 function send(level, emergency = "None") {
   fetch(`${API_URL}/entry`, {
@@ -9,9 +9,16 @@ function send(level, emergency = "None") {
       crowdLevel: level,
       emergency: emergency
     })
-  }).then(() => {
-    alert("Report sent successfully");
-  });
+  .then(res => res.json())
+.then(data => {
+  console.log("Backend response:", data);
+  alert("Report sent successfully");
+})
+.catch(err => {
+  console.error("Error:", err);
+  alert("Failed to send report");
+});
+
 }
 
 function updateTime() {
