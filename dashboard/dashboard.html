@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crowd Control Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+</head>
+<body>
+
+<header>
+  Crowd Control Dashboard
+  <span id="time"></span>
+</header>
+
+<div class="container">
+
+  <aside>
+    <h4>Alert History</h4>
+    <div id="alerts"></div>
+  </aside>
+
+  <!-- CENTER MAP -->
+  <main>
+    <h4>City Situation Map</h4>
+    <div id="map" style="height:100%;"></div>
+  </main>
+
+  <aside>
+    <div class="ai-advisory">
+  <h4>AI Advisory</h4>
+
+  <div class="advisory-tabs">
+    <button onclick="showAdvisory('summary')">Summary</button>
+    <button onclick="showAdvisory('why')">Why</button>
+    <button onclick="showAdvisory('action')">Action</button>
+  </div>
+
+  <!-- KEEP THIS P TAG -->
+  <p id="aiAdvisoryText">
+    Situation stable. Continue monitoring.
+  </p>
+</div>
+  </aside>
+
+</div>
+
+<footer>LIVE STATUS MONITORING ACTIVE</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

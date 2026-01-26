@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crowd Reporting – Field Staff</title>
+  <link rel="stylesheet" href="reporter.css">
+</head>
+<body>
+
+<div class="entry-card">
+
+  <h2>Crowd Reporting</h2>
+  <p class="time" id="time"></p>
+
+  <!-- Location -->
+  <label>Location</label>
+  <select id="location">
+    <option>Railway Station</option>
+    <option>Bus Stand</option>
+    <option>Ramkund Ghat</option>
+  </select>
+
+  <!-- Crowd Density -->
+  <label>Crowd Density</label>
+  <div class="density">
+    <button class="low" onclick="send('LOW')">LOW</button>
+    <button class="medium" onclick="send('MEDIUM')">MEDIUM</button>
+    <button class="high" onclick="send('HIGH')">HIGH</button>
+  </div>
+
+  <!-- Emergency -->
+  <p class="warn">⚠ Emergency use only if needed</p>
+
+  <div class="emergency">
+    <button onclick="startEmergency('Medical Emergency')">🚑 Medical Emergency</button>
+<button onclick="startEmergency('Fire Hazard')">🔥 Fire Hazard</button>
+<button onclick="startEmergency('Stampede Risk')">⚠ Stampede Risk</button>
+<button onclick="startEmergency('Law & Order Issue')">👮 Law & Order Issue</button>
+  </div>
+
+  <!-- MEDICAL TIMER (NEW) -->
+  <p id="emergencyTimer" style="display:none; color:red; margin-top:10px;">
+    <span id="emergencyText"></span>
+     will be reported in <span id="timerCount">15</span> sec
+  </p>
+
+  <button id="undoBtn" style="display:none;" onclick="undoEmergency()">
+    Undo Emergency
+  </button>
+  <p id="emergencyTimer" style="display:none; color:red;">
+  <span id="emergencyText"></span> will be reported in
+  <span id="timerCount">15</span> sec
+</p>
+
+</div>
+
+<script src="reporter.js"></script>
+</body>
+</html>

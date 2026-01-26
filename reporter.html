@@ -31,11 +31,25 @@
   <p class="warn">⚠ Emergency use only if needed</p>
 
   <div class="emergency">
-    <button onclick="send('HIGH','Medical Emergency')">🚑 Medical Emergency</button>
-    <button onclick="send('HIGH','Fire Hazard')">🔥 Fire Hazard</button>
-    <button onclick="send('HIGH','Stampede Risk')">⚠ Stampede Risk</button>
-    <button onclick="send('HIGH','Law & Order Issue')">👮 Law & Order Issue</button>
+    <button onclick="startEmergency('Medical Emergency')">🚑 Medical Emergency</button>
+<button onclick="startEmergency('Fire Hazard')">🔥 Fire Hazard</button>
+<button onclick="startEmergency('Stampede Risk')">⚠ Stampede Risk</button>
+<button onclick="startEmergency('Law & Order Issue')">👮 Law & Order Issue</button>
   </div>
+
+  <!-- MEDICAL TIMER (NEW) -->
+  <p id="emergencyTimer" style="display:none; color:red; margin-top:10px;">
+    <span id="emergencyText"></span>
+     will be reported in <span id="timerCount">15</span> sec
+  </p>
+
+  <button id="undoBtn" style="display:none;" onclick="undoEmergency()">
+    Undo Emergency
+  </button>
+  <p id="emergencyTimer" style="display:none; color:red;">
+  <span id="emergencyText"></span> will be reported in
+  <span id="timerCount">15</span> sec
+</p>
 
 </div>
 
