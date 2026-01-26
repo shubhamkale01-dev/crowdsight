@@ -10,7 +10,9 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Serve frontend files (dashboard.html, js, css)
-app.use(express.static(path.join(__dirname)));
+
+
+const generateAIAdvisory = require("./aiAdvisory");
 
 /***********************
  * ROOT CHECK

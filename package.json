@@ -4,11 +4,18 @@
   "version": "1.0.0",
   "description": "CrowdSight backend for AI crowd monitoring",
   "main": "server.js",
+  "engines":{
+    "node":"18.x"
+  },
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5"
+
   }
+  
+  
 }
+
