@@ -1,4 +1,4 @@
-const API_URL = "https://crowdsight-backend.onrender.com";
+const API_URL = "https://kamble-7.onrender.com";
 
 let emergencyInterval = null;
 let countdown = 15;
